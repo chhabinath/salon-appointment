@@ -50,11 +50,12 @@ public class User {
 	@NotBlank(message = "Role is required")
 	private String role;
 	
-	@Column(updatable = false)
+	@Column(updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 	
-	@UpdateTimestamp
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@UpdateTimestamp()
 	private LocalDateTime updated;
 
 }
